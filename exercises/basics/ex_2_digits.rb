@@ -4,3 +4,4 @@ puts hundreds = a%1000/100
 puts tens = a%1000%100/10
 puts ones = a%1000%100%10
 #puts ones = a/1
+ 
