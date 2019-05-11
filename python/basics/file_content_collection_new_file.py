@@ -43,13 +43,20 @@ import glob2
 import os
 import getpass
 
+#delete output file
 os.remove("resulting_file.txt")
+
+#get new timestamp for output file
 new_file = datetime.datetime.now().strftime("%Y-%m-%d  %H:%M:%S")
+
+#determine all source files
 filenames = glob2.glob("*f*.txt")
 
+#create header in new output file
 with open ("resulting_file.txt","w") as results:
 	results.write(new_file + ' created by '+ getpass.getuser()+'\n\n')
 
+#get content from all source files and append in output file
 for file in filenames:
 	with open (file,"r") as content:
 		cont = content.read()
@@ -57,13 +64,3 @@ for file in filenames:
 			results.write (file +": " + cont + '\n')
 
 ###################    program 2 end ###################
-#print (filenames)
-
-# for file in filenames:
-# 	with open (file) as myfile:
-
-
-
-# for file in filenames:
-# 	#print (file,datetime.datetime.now(),os.name,os.times())
-# 	print (file,getpass.getuser(),os.path.getmtime(file))
